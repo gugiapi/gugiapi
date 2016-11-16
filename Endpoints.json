@@ -3,8 +3,8 @@ GugiApi
 
 bots
 ======
-add_bot: 
-	request(POST) {"type": "tourism", "name": "kayak", "photo": "photo.com/test.jpg", "token": "gsdfjglk5345"}
+add_bots: 
+	request(POST) {"type": "tourism", "name": "kayak", "photo": "photo.com/test.jpg", "bot_token": "gsdfjglk5345"}
 	response (200 OK or 502) {"id": "bot_kayak_gsdfjglk5345"}
 
 Keywords
