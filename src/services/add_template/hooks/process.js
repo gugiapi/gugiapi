@@ -11,7 +11,7 @@ module.exports = function(options) {
     // Override the original data
     hook.data = {
       // Set the user id
-      id: "bot_" + hook.data.name + "_"+hook.data.bot_token
+      id: "template_" + hook.data.template
     };
   };
 };

@@ -7,20 +7,6 @@ add_bots:
 	request(POST) {"type": "tourism", "name": "kayak", "photo": "photo.com/test.jpg", "bot_token": "gsdfjglk5345"}
 	response (200 OK or 502) {"id": "bot_kayak_gsdfjglk5345"}
 
-Keywords
-=========
-get_keywords:
-	request {"bot" : "", "template": "", "page": "", "type": "location", "text": "rome"}
-	response (200 OK or 502) {}
-
-add_keyword:
-	request {"type": "location", "keyword": "Greece"}
-	response response (200 OK or 502) {"id": "location_Greece"}
-
-connect_keyword:
-	request {"source_id": "template_do_you_want_an_hotel_in_(location)", "target_id": "location_Greece"}
-	response (200 OK or 502)
-
 Template
 ========
 get_templates:
@@ -33,6 +19,20 @@ add_template:
 
 connect_template: 
 	request {"source_id": "bot_kayak_gsdfjglk5345", "target_id": "template_do_you_want_an_hotel_in_(location)"}
+	response (200 OK or 502)
+	
+Keywords
+=========
+get_keywords:
+	request {"bot" : "", "template": "", "page": "", "type": "location", "text": "rome"}
+	response (200 OK or 502) {}
+
+add_keyword:
+	request {"type": "location", "keyword": "Greece"}
+	response response (200 OK or 502) {"id": "keyword_location_Greece"}
+
+connect_keyword:
+	request {"source_id": "template_do_you_want_an_hotel_in_(location)", "target_id": "keyword_location_Greece"}
 	response (200 OK or 502)
 
 Page
