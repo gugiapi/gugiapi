@@ -8,10 +8,18 @@
 module.exports = function(options) {
   return function(hook) {
 
-    // Override the original data
-    hook.data = {
-      // Set the user id
-      id: "bot_" + hook.data.name + "_"+hook.data.bot_token
-    };
+	const dse = require('dse-driver');
+	const client = new dse.Client({
+	  contactPoints: ['54.146.140.140'],
+	  graphOptions: { name: 'gugi' }
+	});
+
+	const query = 'g.addV(label, vertexLabel, "uuid", uid, "display", displayName, "Type", typ, "subtype", stype, "photo", ph, "token", tok)';
+	client.executeGraph(query, { vertexLabel: 'bot', uid: "bot_" + hook.data.name + "_"+hook.data.bot_token, displayName: "" + hook.data.name, typ: "" + hook.data.type, stype: 'sub', ph: "" +hook.data.photo, tok: ""+hook.data.bot_token}, function (err, result) {
+		console.log(err)
+		const vertex = result.first();
+		console.log(vertex.properties.uuid[0].value);
+	});
+	hook.data = {id: "bot_" + hook.data.name + "_"+hook.data.bot_token}
   };
 };
