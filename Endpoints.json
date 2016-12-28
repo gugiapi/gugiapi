@@ -15,10 +15,10 @@ get_templates:
 	
 add_template:
 	request {"type": "advise", "template": "do you want an hotel in (location)?"}
-	response (200 OK or 502) {"id": "template_do_you_want_an_hotel_in_(location)"}
+	response (200 OK or 502) {"id": "template_advise_do_you_want_an_hotel_in_(location)"}
 
 connect_template: 
-	request {"source_id": "bot_kayak_gsdfjglk5345", "target_id": "template_do_you_want_an_hotel_in_(location)"}
+	request {"source_id": "bot_kayak_gsdfjglk5345", "target_id": "template_advise_do_you_want_an_hotel_in_(location)"}
 	response (200 OK or 502)
 	
 Keywords
