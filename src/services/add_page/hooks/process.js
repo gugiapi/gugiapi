@@ -9,7 +9,7 @@ module.exports = function(options) {
   return function(hook) {
 	const dse = require('dse-driver');
 	const client = new dse.Client({
-	  contactPoints: ['54.146.140.140'],
+	  contactPoints: ['34.196.115.14'],
 	  graphOptions: { name: 'gugi' }
 	});
 
