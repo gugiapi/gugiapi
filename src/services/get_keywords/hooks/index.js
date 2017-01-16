@@ -18,7 +18,7 @@ exports.after = {
   all: [],
   find: [],
   get: [process()],
-  create: [process({}, function(result){console.log(result)})],
+  create: [process({}, function(result){console.log('result' + '\n' + result)})],
   update: [],
   patch: [],
   remove: []
