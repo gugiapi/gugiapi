@@ -22,8 +22,9 @@ module.exports = function(options) {
 	//	const veretex = result.toArray()
 	//	callback(veretex)
 	//});
-
-	Promise.resolve(client.executeGraph(query))
+	//var fineOne = function (q) {
+	//	return client.executeGraph(q).then(result => console.log(result))};
+	//fineOne(query);
     // Override the original data
     hook.data = {
       // Set the user id
