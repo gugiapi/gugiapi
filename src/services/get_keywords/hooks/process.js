@@ -7,28 +7,28 @@
 
 module.exports = function(options) {
   return function(hook) {
-	var Promise = require('promise');
+	//var nodent = require('nodent')();
 	const dse = require('dse-driver');
 	const client = new dse.Client({
 	  contactPoints: ['34.196.115.14'],
 	  graphOptions: { name: 'gugi' }
 	});
 	
-	var veretex;
-    var callback = function(veretex) { return veretex;}
 	const query = 'g.V().hasLabel("keyword").has("display", Search.tokenRegex(".*(' + hook.data.text +').*")).valueMap()';
-	//client.executeGraph(query, function (err, result) {
-	//	console.log(err)
-	//	const veretex = result.toArray()
-	//	callback(veretex)
-	//});
-	//var fineOne = function (q) {
-	//	return client.executeGraph(q).then(result => console.log(result))};
-	//fineOne(query);
+	client.executeGraph(query, function (err, result) {
+		console.log(err)
+		var veretex = result.toArray()
+		//hook.data = veretex
+		hook.data = {
+			results: veretex
+		};
+		console.log(hook.data)
+	});
+	
     // Override the original data
-    hook.data = {
+    //hook.data = {
       // Set the user id
-      results: veretex
-    };
+    //  results: veretex
+    //};
   };
 };
