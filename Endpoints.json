@@ -6,26 +6,34 @@ bots
 add_bots: 
 	request(POST) {"type": "tourism", "name": "kayak", "photo": "photo.com/test.jpg", "bot_token": "gsdfjglk5345"}
 	response (200 OK or 502) {"id": "bot_kayak_gsdfjglk5345"}
+ 
+get_bots
 
+get_bot_by_id:
+	request(POST) {"id": "bot_kayak_gsdfjglk5345"}
+	response (200 OK or 502) {bot -> templates 
+	                                          -> keywords
+											  -> answers
+ 
 Template
 ========
-get_templates:
-	request {"bot" : "bot_kayak_gsdfjglk5345"}
-	response (200 OK or 502) {}
+//get_templates:
+//	request {"bot" : "bot_kayak_gsdfjglk5345"}
+//	response (200 OK or 502) {}
 	
 add_template:
 	request {"type": "advise", "template": "do you want an hotel in (location)?"}
 	response (200 OK or 502) {"id": "template_advise_do_you_want_an_hotel_in_(location)"}
 
 connect_template: 
-	request {"source_id": "bot_kayak_gsdfjglk5345", "target_id": "template_advise_do_you_want_an_hotel_in_(location)"}
+	request {"source_id": "bot_kayak_gsdfjglk5345", "target_id": "template"}
 	response (200 OK or 502)
 	
 Keywords
 =========
 get_keywords:
-	request {"bot" : "", "template": "", "page": "", "type": "location", "text": "rome"}
-	response (200 OK or 502) {}
+	request {"type": "location", "text": "rome"}
+	response (200 OK or 502) {keywords: [{"id": "keyword_location_Greece", "keyword": "rome","type": "location"}]}
 
 add_keyword:
 	request {"type": "location", "keyword": "Greece"}
@@ -34,6 +42,12 @@ add_keyword:
 connect_keyword:
 	request {"source_id": "template_do_you_want_an_hotel_in_(location)", "target_id": "keyword_location_Greece"}
 	response (200 OK or 502)
+
+answer
+=========
+add_answer:
+	request {"template_id": "template_whant_a_car?", "defult": "true", "answer": "Yes", "params" : "?answer=yes"}
+	response response (200 OK or 502) {"id": "answer_location_Greece"}
 
 Page
 ======
