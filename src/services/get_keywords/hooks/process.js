@@ -16,13 +16,15 @@ module.exports = function(options, callback) {
 	
 	const query = 'g.V().hasLabel("keyword").has("display", Search.tokenRegex(".*(' + hook.data.text +').*")).valueMap()';
 	Promise.resolve(client.executeGraph(query, function (err, result) {
-		console.log(err)
-		var veretex = result.toArray()
+		if (err) {
+			console.log(err);
+		}
+		var veretex = result.toArray();
 		//hook.data = veretex
 		hook.data = {
 			results: veretex
 		};
-		callback(veretex)
+		callback(veretex);
 		//console.log(hook.data)
 	}));
 	
