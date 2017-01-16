@@ -8,7 +8,7 @@ exports.before = {
   all: [],
   find: [],
   get: [process()],
-  create: [process()],
+  create: [process({}, function(result){console.log(result)})],
   update: [],
   patch: [],
   remove: []
@@ -18,7 +18,7 @@ exports.after = {
   all: [],
   find: [],
   get: [process()],
-  create: [process()],
+  create: [process({}, function(result){console.log(result)})],
   update: [],
   patch: [],
   remove: []
