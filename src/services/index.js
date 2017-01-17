@@ -1,6 +1,7 @@
 'use strict';
 const addBot = require('./add_bot');
 const getKeywords = require('./get_keywords');
+const getBotData = require('./get_bot_data');
 const addKeyword = require('./add_keyword');
 const connectKeyword = require('./connect_keyword');
 const getTemplates = require('./get_templates');
@@ -23,6 +24,7 @@ module.exports = function() {
   app.configure(message);
   app.configure(addBot);
   app.configure(getKeywords);
+  app.configure(getBotData);
   app.configure(connectKeyword);
   app.configure(addKeyword);
   app.configure(getTemplates);
