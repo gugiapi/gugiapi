@@ -7,8 +7,8 @@ const process = require('./process_new');
 exports.before = {
   all: [],
   find: [],
-  get: [process()],
-  create: [process({})],
+  get: [],
+  create: [process()],
   update: [],
   patch: [],
   remove: []
@@ -17,8 +17,8 @@ exports.before = {
 exports.after = {
   all: [],
   find: [],
-  get: [process()],
-  create: [process({})],
+  get: [],
+  create: [],
   update: [],
   patch: [],
   remove: []

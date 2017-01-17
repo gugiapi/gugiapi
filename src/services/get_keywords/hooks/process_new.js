@@ -7,6 +7,7 @@
 
 module.exports = function(options) {
   return function(hook) {
+		if (hook.data.text == undefined) {return hook}
 		console.log('text: ' + hook.data);
 		//var nodent = require('nodent')();
 		const dse = require('dse-driver');
@@ -21,8 +22,8 @@ module.exports = function(options) {
 				reject(err);
 			}
 			console.log('q ' + query);
-			console.log(JSON.stringify(result));
-			resolve(result);
+			console.log(JSON.stringify(result.toArray()));
+			resolve(result.toArray());
 			//console.log(hook.data)
 		})}).then(function(res){
 			console.log('res \n' + JSON.stringify(res));
