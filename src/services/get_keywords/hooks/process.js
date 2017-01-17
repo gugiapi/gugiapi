@@ -15,6 +15,7 @@ module.exports = function(options, callback) {
 	});
 	
 	const query = 'g.V().hasLabel("keyword").has("display", Search.tokenRegex(".*(' + hook.data.text +').*")).valueMap()';
+	console.log(query);
 	Promise.resolve(client.executeGraph(query, function (err, result) {
 		if (err) {
 			console.log(err);
